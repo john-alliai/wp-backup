@@ -34,19 +34,14 @@
     .gradient-bg {
       background: linear-gradient(135deg, #f0f4ff 0%, #fefce8 50%, #f0f4ff 100%);
     }
-    .wave-line {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0.08;
-      pointer-events: none;
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
-    #countdown span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .pulse-slow {
+      animation: pulse-slow 3s ease-in-out infinite;
     }
+
     /* HubSpot Form Overrides */
     .hs-form-container .hs-form {
       max-width: 100% !important;
@@ -169,110 +164,117 @@
       text-align: center !important;
       padding: 2rem 1rem !important;
     }
-    .progress-bar {
-      animation: progress 4s ease-in-out infinite alternate;
-    }
-    @keyframes progress {
-      0% { width: 30%; }
-      100% { width: 70%; }
-    }
-    @keyframes pulse-slow {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .pulse-slow {
-      animation: pulse-slow 3s ease-in-out infinite;
-    }
   </style>
 </head>
 <body class="gradient-bg min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="w-full py-5 px-6">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <!-- Alli AI Logo -->
-        <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="60" height="60" rx="12" fill="#2563eb"/>
-          <path d="M15 30C15 30 22 20 30 20C38 20 45 30 45 30C45 30 38 40 30 40C22 40 15 30 15 30Z" stroke="white" stroke-width="3" fill="none"/>
-          <circle cx="30" cy="30" r="5" fill="#facc15"/>
-          <path d="M10 22L18 28" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M50 22L42 28" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M10 38L18 32" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M50 38L42 32" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-        <span class="text-2xl font-extrabold text-gray-900 tracking-tight">Alli <span class="font-extrabold text-brand-blue">AI</span></span>
+  <header class="w-full py-5 px-6 border-b border-gray-100 bg-white/60 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <img src="Alli-AI-logo.svg" alt="Alli AI" class="h-9 sm:h-10">
+      <div class="flex items-center gap-4">
+        <a href="https://app.alliai.com/"
+           class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors hidden sm:inline">
+          Login
+        </a>
+        <a href="https://app.alliai.com/"
+           class="inline-flex items-center gap-2 bg-brand-blue text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
+          Sign up
+        </a>
       </div>
-      <a href="https://app.alliai.com/"
-         class="hidden sm:inline-flex items-center gap-2 bg-brand-blue text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
-        Sign up
-      </a>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-1 flex items-center justify-center px-6 py-10 relative overflow-hidden">
-    <!-- Decorative wave -->
-    <svg class="wave-line" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,75 1440,60" stroke="#2563eb" stroke-width="2" fill="none"/>
-    </svg>
+  <!-- Main Content: Two-Column Layout -->
+  <main class="flex-1 flex items-center px-6 py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-    <div class="max-w-3xl w-full text-center relative z-10">
+      <!-- Left Column: Text Content -->
+      <div class="text-left">
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur border border-blue-100 rounded-full px-4 py-1.5 mb-8 shadow-sm">
+          <span class="w-2 h-2 bg-yellow-400 rounded-full pulse-slow"></span>
+          <span class="text-sm font-medium text-gray-600">Scheduled Maintenance</span>
+        </div>
 
-      <!-- Status Badge -->
-      <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur border border-blue-100 rounded-full px-4 py-1.5 mb-8 shadow-sm">
-        <span class="w-2 h-2 bg-yellow-400 rounded-full pulse-slow"></span>
-        <span class="text-sm font-medium text-gray-600">Scheduled Maintenance</span>
+        <!-- Heading -->
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-black text-gray-900 tracking-tight leading-[1.1] mb-6">
+          We'll Be Back
+          <span class="relative inline-block">
+            <span class="relative z-10">Shortly.</span>
+            <span class="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-yellow-300 rounded-sm" style="z-index: -1;"></span>
+          </span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-gray-600 mb-4 leading-relaxed max-w-lg">
+          Our platform is undergoing scheduled maintenance to bring you
+          an even better SEO and AI search optimization experience.
+        </p>
+
+        <p class="text-base text-gray-500 mb-10">
+          Estimated downtime: <strong class="text-gray-700">~4 hours</strong>
+        </p>
+
+        <!-- Countdown Timer -->
+        <div id="countdown" class="flex items-center gap-3 sm:gap-4 mb-10">
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px] text-center">
+            <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="hours">--</div>
+            <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Hours</div>
+          </div>
+          <span class="text-2xl font-bold text-gray-300">:</span>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px] text-center">
+            <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="minutes">--</div>
+            <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Min</div>
+          </div>
+          <span class="text-2xl font-bold text-gray-300">:</span>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px] text-center">
+            <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="seconds">--</div>
+            <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Sec</div>
+          </div>
+        </div>
+
+        <!-- Benefits List -->
+        <p class="text-base font-semibold text-gray-800 mb-4">With Alli, you'll be able to:</p>
+        <ul class="space-y-3 text-gray-600">
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Automate SEO Fulfillment
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Improve Client Retention
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Get more SEO done with less
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Test and Deploy OnPage Changes Instantly
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Enable AI Search Access at Scale
+          </li>
+        </ul>
+
+        <!-- CTA -->
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="https://app.alliai.com/"
+             class="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Start a Free Trial
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
       </div>
 
-      <!-- Heading -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-        We'll Be Back<br>
-        <span class="relative inline-block">
-          <span class="relative z-10">Shortly.</span>
-          <span class="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-yellow-300 -z-0 rounded-sm" style="z-index: -1;"></span>
-        </span>
-      </h1>
-
-      <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
-        Our platform is undergoing scheduled maintenance to bring you
-        an even better SEO and AI search optimization experience.
-      </p>
-
-      <p class="text-base text-gray-500 mb-8">
-        Estimated downtime: <strong class="text-gray-700">~4 hours</strong>
-      </p>
-
-      <!-- Countdown Timer -->
-      <div id="countdown" class="flex items-center justify-center gap-3 sm:gap-5 mb-10">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px]">
-          <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="hours">--</div>
-          <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Hours</div>
-        </div>
-        <span class="text-2xl font-bold text-gray-300">:</span>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px]">
-          <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="minutes">--</div>
-          <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Min</div>
-        </div>
-        <span class="text-2xl font-bold text-gray-300">:</span>
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px]">
-          <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="seconds">--</div>
-          <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Sec</div>
-        </div>
-      </div>
-
-      <!-- Progress Bar -->
-      <div class="max-w-md mx-auto mb-12">
-        <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-          <div class="progress-bar h-full bg-gradient-to-r from-brand-blue to-blue-400 rounded-full"></div>
-        </div>
-      </div>
-
-      <!-- Form Section -->
-      <div class="max-w-xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 sm:p-10 text-left">
-          <h2 class="text-lg font-bold text-gray-900 mb-1">Schedule a Demo</h2>
-          <p class="text-sm text-gray-500 mb-6">Leave your details and we'll reach out when we're back online.</p>
+      <!-- Right Column: Form -->
+      <div>
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 sm:p-10">
+          <h2 class="text-xl font-bold text-gray-900 mb-1">Schedule a Demo</h2>
+          <p class="text-sm text-gray-500 mb-6">Fill out the form and we'll reach out when we're back online.</p>
           <div class="hs-form-container">
             <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
             <script>
@@ -284,33 +286,19 @@
             </script>
           </div>
         </div>
-
-        <!-- CTA below form -->
-        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <span class="text-sm text-gray-500">Ready to get started?</span>
-          <a href="https://app.alliai.com/"
-             class="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold text-sm px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
-            Start a Free Trial
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
       </div>
 
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="py-6 px-6 text-center">
+  <footer class="py-6 px-6 text-center border-t border-gray-100">
     <p class="text-sm text-gray-400">&copy; 2026 Alli AI. All rights reserved.</p>
   </footer>
 
   <!-- Countdown Script -->
   <script>
     (function() {
-      // Set maintenance end time to 4 hours from when the page first loads.
-      // Uses sessionStorage so a refresh doesn't reset the timer.
       const STORAGE_KEY = 'alli_maintenance_end';
       let endTime;
 
