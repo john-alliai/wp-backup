@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alli AI - Scheduled Maintenance</title>
+  <meta name="description" content="Alli AI is currently undergoing scheduled maintenance. We'll be back shortly.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#2563eb',
+              dark: '#1e293b',
+              yellow: '#facc15',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #f0f4ff 0%, #fefce8 50%, #f0f4ff 100%);
+    }
+    .wave-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    #countdown span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hs-form-container .hs-form {
+      max-width: 100% !important;
+    }
+    .hs-form-container .hs-form .hs-input {
+      width: 100% !important;
+      border-radius: 0.5rem !important;
+      border: 1px solid #e2e8f0 !important;
+      padding: 0.625rem 0.875rem !important;
+      font-size: 0.875rem !important;
+    }
+    .hs-form-container .hs-form .hs-button {
+      background-color: #2563eb !important;
+      border: none !important;
+      border-radius: 0.5rem !important;
+      padding: 0.625rem 1.5rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: background-color 0.2s !important;
+    }
+    .hs-form-container .hs-form .hs-button:hover {
+      background-color: #1d4ed8 !important;
+    }
+    .progress-bar {
+      animation: progress 4s ease-in-out infinite alternate;
+    }
+    @keyframes progress {
+      0% { width: 30%; }
+      100% { width: 70%; }
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .pulse-slow {
+      animation: pulse-slow 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="w-full py-5 px-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <!-- Alli AI Logo -->
+        <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="60" rx="12" fill="#2563eb"/>
+          <path d="M15 30C15 30 22 20 30 20C38 20 45 30 45 30C45 30 38 40 30 40C22 40 15 30 15 30Z" stroke="white" stroke-width="3" fill="none"/>
+          <circle cx="30" cy="30" r="5" fill="#facc15"/>
+          <path d="M10 22L18 28" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 22L42 28" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M10 38L18 32" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 38L42 32" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="text-2xl font-extrabold text-gray-900 tracking-tight">Alli <span class="font-extrabold text-brand-blue">AI</span></span>
+      </div>
+      <a href="https://app.alliai.com/"
+         class="hidden sm:inline-flex items-center gap-2 bg-brand-blue text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
+        Sign up
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex items-center justify-center px-6 py-10 relative overflow-hidden">
+    <!-- Decorative wave -->
+    <svg class="wave-line" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,75 1440,60" stroke="#2563eb" stroke-width="2" fill="none"/>
+    </svg>
+
+    <div class="max-w-3xl w-full text-center relative z-10">
+
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur border border-blue-100 rounded-full px-4 py-1.5 mb-8 shadow-sm">
+        <span class="w-2 h-2 bg-yellow-400 rounded-full pulse-slow"></span>
+        <span class="text-sm font-medium text-gray-600">Scheduled Maintenance</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-tight mb-6">
+        We'll Be Back<br>
+        <span class="relative inline-block">
+          <span class="relative z-10">Shortly.</span>
+          <span class="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-yellow-300 -z-0 rounded-sm" style="z-index: -1;"></span>
+        </span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
+        Our platform is undergoing scheduled maintenance to bring you
+        an even better SEO and AI search optimization experience.
+      </p>
+
+      <p class="text-base text-gray-500 mb-8">
+        Estimated downtime: <strong class="text-gray-700">~4 hours</strong>
+      </p>
+
+      <!-- Countdown Timer -->
+      <div id="countdown" class="flex items-center justify-center gap-3 sm:gap-5 mb-10">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px]">
+          <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="hours">--</div>
+          <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Hours</div>
+        </div>
+        <span class="text-2xl font-bold text-gray-300">:</span>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px]">
+          <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="minutes">--</div>
+          <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Min</div>
+        </div>
+        <span class="text-2xl font-bold text-gray-300">:</span>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 px-4 py-3 min-w-[72px]">
+          <div class="text-2xl sm:text-3xl font-bold text-gray-900" id="seconds">--</div>
+          <div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Sec</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="max-w-md mx-auto mb-12">
+        <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+          <div class="progress-bar h-full bg-gradient-to-r from-brand-blue to-blue-400 rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Two-Column: Form + CTA -->
+      <div class="grid md:grid-cols-2 gap-8 items-start max-w-2xl mx-auto">
+
+        <!-- Notification Form -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-left">
+          <h2 class="text-base font-bold text-gray-900 mb-1">Get Notified</h2>
+          <p class="text-sm text-gray-500 mb-4">We'll let you know when we're back online.</p>
+          <div class="hs-form-container">
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                portalId: "23539997",
+                formId: "aea233c9-30e4-4f3d-bfd9-a5a11373bbdc",
+                region: "na1"
+              });
+            </script>
+          </div>
+        </div>
+
+        <!-- CTA Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-left flex flex-col justify-between h-full">
+          <div>
+            <h2 class="text-base font-bold text-gray-900 mb-1">New to Alli AI?</h2>
+            <p class="text-sm text-gray-500 mb-5">
+              Automate SEO and enable AI search access across 100+ sites and millions of pages.
+            </p>
+          </div>
+          <a href="https://app.alliai.com/"
+             class="inline-flex items-center justify-center w-full bg-brand-blue text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Start a Free Trial
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="https://app.alliai.com/"
+             class="mt-3 inline-flex items-center justify-center w-full border border-gray-200 text-gray-700 font-semibold text-sm px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+            Sign Up
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 px-6 text-center">
+    <p class="text-sm text-gray-400">&copy; 2026 Alli AI. All rights reserved.</p>
+  </footer>
+
+  <!-- Countdown Script -->
+  <script>
+    (function() {
+      // Set maintenance end time to 4 hours from when the page first loads.
+      // Uses sessionStorage so a refresh doesn't reset the timer.
+      const STORAGE_KEY = 'alli_maintenance_end';
+      let endTime;
+
+      const stored = sessionStorage.getItem(STORAGE_KEY);
+      if (stored && Number(stored) > Date.now()) {
+        endTime = Number(stored);
+      } else {
+        endTime = Date.now() + 4 * 60 * 60 * 1000;
+        sessionStorage.setItem(STORAGE_KEY, endTime);
+      }
+
+      function pad(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      function update() {
+        const remaining = Math.max(0, endTime - Date.now());
+        const totalSeconds = Math.floor(remaining / 1000);
+        const h = Math.floor(totalSeconds / 3600);
+        const m = Math.floor((totalSeconds % 3600) / 60);
+        const s = totalSeconds % 60;
+
+        document.getElementById('hours').textContent = pad(h);
+        document.getElementById('minutes').textContent = pad(m);
+        document.getElementById('seconds').textContent = pad(s);
+
+        if (remaining <= 0) {
+          clearInterval(timer);
+          document.getElementById('hours').textContent = '00';
+          document.getElementById('minutes').textContent = '00';
+          document.getElementById('seconds').textContent = '00';
+        }
+      }
+
+      update();
+      const timer = setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>
