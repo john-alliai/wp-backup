@@ -43,126 +43,135 @@
     }
 
     /* HubSpot Form Overrides */
-    .hs-form-container .hs-form {
-      max-width: 100% !important;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    .get-demo-form form {
+      font-family: "Inter", sans-serif;
     }
-    .hs-form-container .hs-form fieldset {
-      max-width: 100% !important;
-      margin-bottom: 0 !important;
+    .get-demo-form .form-columns-2 {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 32px;
     }
-    .hs-form-container .hs-form .hs-form-field {
-      margin-bottom: 1.25rem !important;
+    .get-demo-form fieldset {
+      max-width: 100%;
     }
-    .hs-form-container .hs-form fieldset.form-columns-2 {
-      display: flex !important;
-      gap: 1rem !important;
+    .get-demo-form fieldset > .field {
+      margin-bottom: 20px;
+      width: 180px !important;
+      flex-grow: 1;
     }
-    .hs-form-container .hs-form fieldset.form-columns-2 .hs-form-field {
-      flex: 1 !important;
-      width: auto !important;
+    .get-demo-form .hs-form-field {
+      margin-bottom: 20px;
     }
-    .hs-form-container .hs-form fieldset.form-columns-2 .input {
-      margin-right: 0 !important;
+    .get-demo-form .hs_email,
+    .get-demo-form .hs_0-2\/name,
+    .get-demo-form .hs_number_of_websites_managed,
+    .get-demo-form .hs_phone {
+      margin-bottom: 20px;
     }
-    .hs-form-container .hs-form label:not(.hs-error-msg) {
-      font-size: 0.9375rem !important;
-      font-weight: 600 !important;
-      color: #1e293b !important;
-      margin-bottom: 0.5rem !important;
-      display: block !important;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    .get-demo-form fieldset .field > label {
+      color: #060606;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.48;
+      margin-bottom: 6px;
     }
-    .hs-form-container .hs-form .hs-input,
-    .hs-form-container .hs-form input[type="text"],
-    .hs-form-container .hs-form input[type="email"],
-    .hs-form-container .hs-form input[type="url"],
-    .hs-form-container .hs-form input[type="number"],
-    .hs-form-container .hs-form input[type="tel"],
-    .hs-form-container .hs-form select,
-    .hs-form-container .hs-form textarea {
+    .get-demo-form fieldset.form-columns-1 > .field {
       width: 100% !important;
-      background-color: #f3f4f6 !important;
-      border: 1px solid #e8e8e8 !important;
-      border-radius: 0.625rem !important;
-      padding: 0.875rem 1rem !important;
-      font-size: 1rem !important;
-      color: #374151 !important;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-      transition: border-color 0.2s, box-shadow 0.2s !important;
-      box-sizing: border-box !important;
-      -webkit-appearance: none !important;
-      outline: none !important;
     }
-    .hs-form-container .hs-form .hs-input::placeholder {
-      color: #9ca3af !important;
+    .get-demo-form fieldset.form-columns-1 .input,
+    .get-demo-form fieldset.form-columns-2 .input {
+      margin-right: 0;
     }
-    .hs-form-container .hs-form .hs-input:focus,
-    .hs-form-container .hs-form input:focus,
-    .hs-form-container .hs-form select:focus,
-    .hs-form-container .hs-form textarea:focus {
-      border-color: #93b4f8 !important;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
-      background-color: #fff !important;
+    .get-demo-form fieldset.form-columns-1 .hs-input,
+    .get-demo-form fieldset.form-columns-2 .hs-input {
+      width: 100%;
     }
-    .hs-form-container .hs-form select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 5.5L8 9l3.5-3.5'/%3E%3C/svg%3E") !important;
-      background-repeat: no-repeat !important;
-      background-position: right 0.875rem center !important;
-      background-size: 1rem !important;
-      padding-right: 2.5rem !important;
+    .get-demo-form .hs-fieldtype-textarea {
+      min-height: 128px;
+      resize: none;
     }
-    .hs-form-container .hs-form .hs-error-msgs {
-      margin-top: 0.375rem !important;
-      list-style: none !important;
-      padding: 0 !important;
+    .get-demo-form :is(input[type=tel], input[type=email], input[type=number], input[type=text], input[type=url], select, textarea) {
+      padding: 11px 16px;
+      border-radius: 8px;
+      border: 1px solid #EEE;
+      color: #626262;
+      background-color: #F8F9FA;
+      font-size: 16px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .hs-form-container .hs-form .hs-error-msgs label,
-    .hs-form-container .hs-form .hs-error-msg {
-      color: #ef4444 !important;
-      font-size: 0.8125rem !important;
-      font-weight: 500 !important;
+    .get-demo-form :is(input[type=email], input[type=number], input[type=tel], input[type=text], input[type=url], select, textarea):focus {
+      border-color: #93b4f8;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      background-color: #fff;
     }
-    .hs-form-container .hs-form .hs-button,
-    .hs-form-container .hs-form input[type="submit"] {
-      width: 100% !important;
-      background-color: #4A8CF7 !important;
-      background-image: linear-gradient(135deg, #4A8CF7 0%, #5B9BFF 100%) !important;
-      border: none !important;
-      border-radius: 0.75rem !important;
-      padding: 1rem 1.5rem !important;
-      font-size: 1.125rem !important;
-      font-weight: 700 !important;
-      color: #fff !important;
-      cursor: pointer !important;
-      transition: all 0.2s !important;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-      letter-spacing: -0.01em !important;
-      margin-top: 0.5rem !important;
+    .get-demo-form :is(input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], select, textarea)::placeholder {
+      color: #626262;
     }
-    .hs-form-container .hs-form .hs-button:hover,
-    .hs-form-container .hs-form input[type="submit"]:hover {
-      background-color: #3b7ee6 !important;
-      background-image: linear-gradient(135deg, #3b7ee6 0%, #4A8CF7 100%) !important;
-      transform: translateY(-1px) !important;
-      box-shadow: 0 4px 12px rgba(74, 140, 247, 0.35) !important;
+    .get-demo-form form select {
+      -webkit-appearance: none;
+      appearance: none;
+      padding-right: 50px !important;
+      background-position: center right 16px;
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkZyYW1lIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTE4LjcwNzMgOS4wNDMwNEwxMi41MDAyIDIuODM1OTRMNi4yOTMxMiA5LjA0MzA0TDcuNzA3MzMgMTAuNDU3M0wxMi41MDAyIDUuNjY0MzZMMTcuMjkzMSAxMC40NTczTDE4LjcwNzMgOS4wNDMwNFpNNi4yOTI5NyAxNC45NTc0TDEyLjUwMDEgMjEuMTY0NkwxOC43MDcyIDE0Ljk1NzRMMTcuMjkzIDEzLjU0MzJMMTIuNTAwMSAxOC4zMzYxTDcuNzA3MTggMTMuNTQzMkw2LjI5Mjk3IDE0Ljk1NzRaIiBmaWxsPSIjNjI2MjYyIi8+CjwvZz4KPC9zdmc+Cg==);
     }
-    .hs-form-container .hs-form .hs-richtext {
-      font-size: 0.875rem !important;
-      color: #6b7280 !important;
-      margin-bottom: 1rem !important;
+    .get-demo-form form .hs-fieldtype-intl-phone select {
+      padding-right: 40px;
+      background-position: center right 12px;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImNoZXZyb24tZG93biI+CjxwYXRoIGlkPSJJY29uIiBkPSJNNSA3LjVMMTAgMTIuNUwxNSA3LjUiIHN0cm9rZT0iIzYyNjI2MiIgc3Ryb2tlLXdpZHRoPSIxLjY2NjY3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8L3N2Zz4K);
     }
-    .hs-form-container .hs-form .legal-consent-container .hs-form-booleancheckbox label {
-      font-size: 0.8125rem !important;
-      font-weight: 400 !important;
-      color: #6b7280 !important;
+    .get-demo-form form input[type=number] {
+      -moz-appearance: textfield;
+      -webkit-appearance: none;
+      appearance: none;
     }
-    .hs-form-container .submitted-message {
-      font-size: 1.125rem !important;
-      color: #059669 !important;
-      font-weight: 600 !important;
-      text-align: center !important;
-      padding: 2rem 1rem !important;
+    .get-demo-form form input::-webkit-outer-spin-button,
+    .get-demo-form form input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .get-demo-form form input[type=submit] {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.55em;
+      border: none;
+      fill: #fff;
+      color: #fff;
+      background-color: #0C7FF2;
+      border-radius: 8px;
+      box-shadow: 0px 1px 2px 0px rgba(15, 24, 40, 0.05);
+      padding: 16px 28px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: "Inter", sans-serif;
+    }
+    .get-demo-form form input[type=submit]:hover {
+      background-color: #0a6dd4;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(12, 127, 242, 0.35);
+    }
+    .get-demo-form ul.hs-error-msgs {
+      list-style-type: none;
+      padding: 3px 0 0 2px;
+      font-size: 14px;
+      color: #ef4444;
+    }
+    .get-demo-form .hs_error_rollup {
+      padding-bottom: 20px;
+    }
+    @media (max-width: 400px) {
+      .get-demo-form form:not(.hs-video-form) .form-columns-2 .hs-form-field .hs-input,
+      .get-demo-form form:not(.hs-video-form) .form-columns-3 .hs-form-field .hs-input {
+        width: 100%;
+      }
+      .get-demo-form fieldset > .field {
+        margin-bottom: 14px;
+      }
     }
   </style>
 </head>
@@ -240,13 +249,26 @@
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 sm:p-10">
           <h2 class="text-xl font-bold text-gray-900 mb-1">Schedule a Demo</h2>
           <p class="text-sm text-gray-500 mb-6">Fill out the form and we'll reach out when we're back online.</p>
-          <div class="hs-form-container">
+          <div class="get-demo-form">
             <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
             <script>
-              hbspt.forms.create({
-                portalId: "23539997",
-                formId: "aea233c9-30e4-4f3d-bfd9-a5a11373bbdc",
-                region: "na1"
+              jQuery(document).ready(function() {
+                hbspt.forms.create({
+                  region: "na1",
+                  portalId: "23539997",
+                  formId: "aea233c9-30e4-4f3d-bfd9-a5a11373bbdc",
+                  onFormSubmit: function($form) {
+                    var contactRegion = $form.find('select[name="contact_region"]').val();
+                    setTimeout(function() {
+                      if (contactRegion == "Americas" || contactRegion == "Africa") {
+                        window.location.href = "/thank-you";
+                      } else if (contactRegion == "Europe" || contactRegion == "Asia") {
+                        window.location.href = "/thank-you-ae";
+                      }
+                    }, 500);
+                  }
+                });
               });
             </script>
           </div>
